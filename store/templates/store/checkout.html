@@ -70,7 +70,7 @@
 
 	<script type="text/javascript">
 		var shipping = '{{order.shipping}}'
-		var total = '{{order.get_cart_total}}' //|floatformat:2
+		var total = '{{order.get_cart_total|floatformat:2}}'
 
 		if (shipping == 'False'){
 		 	document.getElementById('shipping-info').innerHTML = ''
@@ -82,7 +82,7 @@
 
 		if (shipping == 'False' && user != 'AnonymousUser'){
 				document.getElementById('form-wrapper').classList.add("hidden");
-			    document.getElementById('payment-info').classList.remove("hidden");
+			  document.getElementById('payment-info').classList.remove("hidden");
 		}
 
 		var form = document.getElementById('form')
@@ -140,9 +140,13 @@
 	    	})
 	    	.then((response) => response.json())
 	    	.then((data) => {
-				  console.log('Success:', data);
-				  alert('Transaction completed');
-				  window.location.href = "{% url 'store' %}"
+				console.log('Success:', data);
+				alert('Transaction completed');
+
+				cart = {}
+				document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+
+				window.location.href = "{% url 'store' %}"
 
 				})
 	    }
