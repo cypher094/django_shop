@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse, HttpResponse
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
@@ -89,6 +89,7 @@ def checkout(request):
 @login_required(login_url='login')
 def updateItem(request):
 	data = json.loads(request.body)
+	print(request.body)
 	productId = data['productId']
 	action = data['action']
 	print('Action:', action)
@@ -141,3 +142,21 @@ def processOrder(request):
 		)
 
 	return JsonResponse('Payment submitted..', safe=False)
+
+def detail(request, auction_id):
+    auction = get_object_or_404(Product, pk=auction_id)
+    # auction.resolve()
+    print(auction)
+    already_bid = False
+    # if request.user.is_authenticated:
+    #     if auction.author == request.user:
+    #         own_auction = True
+    #         return render(request, 'auctions/detail.html', {'auction': auction, 'own_auction': own_auction})
+
+    #     user_bid = Bid.objects.filter(bidder=request.user).filter(auction=auction).first()
+    #     if user_bid:
+    #         already_bid = True
+    #         bid_amount = user_bid.amount
+    #         return render(request, 'auctions/detail.html', {'auction': auction, 'already_bid': already_bid, 'bid_amount': bid_amount})
+
+    return render(request, 'store/detail.html',{'auction': auction, "idi" : auction_id})

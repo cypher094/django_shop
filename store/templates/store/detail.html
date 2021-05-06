@@ -1,0 +1,12 @@
+{% extends 'store/main.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-4">
+        <h1> {{ auction.name }} </h1>
+        <h1> {{ auction.price }} </h1>
+        <button data-product={{idi}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+        <img class="auction_image_index" src="{{ auction.imageURL }}">
+    </div>
+</div>
+
+{% endblock %}
