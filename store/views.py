@@ -144,10 +144,14 @@ def processOrder(request):
 	return JsonResponse('Payment submitted..', safe=False)
 
 def detail(request, auction_id):
+    print(auction_id)
     auction = get_object_or_404(Product, pk=auction_id)
     # auction.resolve()
     print(auction)
     already_bid = False
+    data = cartData(request)
+    cartItems = data['cartItems']
+    items =  {'cartItems':cartItems}
     # if request.user.is_authenticated:
     #     if auction.author == request.user:
     #         own_auction = True
@@ -159,4 +163,4 @@ def detail(request, auction_id):
     #         bid_amount = user_bid.amount
     #         return render(request, 'auctions/detail.html', {'auction': auction, 'already_bid': already_bid, 'bid_amount': bid_amount})
 
-    return render(request, 'store/detail.html',{'auction': auction, "idi" : auction_id})
+    return render(request, 'store/detail.html', {**items, 'auction': auction, 'idi': auction_id })
