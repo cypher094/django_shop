@@ -20,6 +20,20 @@ def registerPage(request):
 		if form.is_valid():
 			form.save()
 			user = form.cleaned_data.get('username')
+			email = form.cleaned_data.get('emailname')
+			
+			user_info = User.objects.get(
+				username=user
+			)
+
+			customer = Customer.objects.create(
+				user=user_info,
+				name=user,
+				email=user_info.email
+			)
+			login(request, user_info)
+			return redirect('store')
+
 			messages.success(request, 'Account was created for ' + user)
 
 			return redirect('login')
