@@ -7,10 +7,10 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .box-element{
-	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	box-shadow:hsl(0, 0%, 80%) 0 0 10px;
 	background-color: #fff;
-	border-radius: 4px;
-	padding: 10px;
+	border-radius: 8px;
+	padding: 20px;
 }
 
 .thumbnail{
@@ -22,26 +22,26 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .product{
-	border-radius: 0 0 4px 4px;
+	border-radius: 25px 25px 25px 25px;
 }
 
 .bg-dark{
-	background-color: #4f868c!important;
+	background-color: #1c2020!important;
 }
 
 #cart-icon{
-	width:25px;
+	width: 30px;
 	display: inline-block;
-	margin-left: 15px;
+	margin-left: 30px;
 }
 
 #cart-total{
 	display: block;
 	text-align: center;
 	color:#fff;
-	background-color: red;
+	background-color: rgb(73, 69, 62);
 	width: 20px;
-	height: 25px;
+	height: 22px;
 	border-radius: 50%;
 	font-size: 14px;
 }
@@ -51,7 +51,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .btn{
-	border-radius: 0;
+	border-radius: 25px;
 }
 
 .row-image{

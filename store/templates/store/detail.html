@@ -2,10 +2,14 @@
 {% block content %}
 <div class="row">
     <div class="col-lg-4">
-        <h1> {{ auction.name }} </h1>
-        <h1> ${{ auction.price }} </h1>
-        <button data-product={{idi}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-        <img class="auction_image_index" src="{{ auction.imageURL }}">
+        <img class="img-responsive" src="{{ auction.imageURL }}">
+        <div class="box-element product">
+            <h6><strong> {{ auction.name }} </strong></h6>
+            <hr>
+            <h4><strong> ${{ auction.price }}</strong> </h1>
+            <button data-product={{idi}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+        </div>
     </div>
 </div>
 
